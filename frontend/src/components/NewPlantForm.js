@@ -63,7 +63,7 @@ function NewPlantForm() {
     <FadeIn>
       <div>
         <h1> Add a New Plant!</h1>
-        <form onSubmit={handleSubmit} className="">
+        <form onSubmit={handleSubmit} className="newPlantForm">
           <label htmlFor="name">Name</label>
         
           <input
