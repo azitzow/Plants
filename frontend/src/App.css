@@ -48,9 +48,25 @@
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .watering-active {
   cursor: "none";
+}
+
+
+
+.App {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+.App::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
+
+.active {
+  pointer-events: all;
 }
