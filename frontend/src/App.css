@@ -50,3 +50,7 @@
 body {
   overflow: hidden;
 }
+
+.watering-active {
+  cursor: "none";
+}
