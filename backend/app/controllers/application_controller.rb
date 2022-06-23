@@ -1,6 +1,8 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
-  
+  # lsof -i tcp:9292
+  # sudo kill -9 9608
+  # https://stackoverflow.com/questions/52943330/vs-live-share-and-live-server
   # Add your routes here
   get "/plants" do
     Plant.all.to_json

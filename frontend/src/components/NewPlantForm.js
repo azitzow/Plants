@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import {logInContext} from "./App"
+import FadeIn from 'react-fade-in';
 
 // destructure handleAdd here
 function NewPlantForm() {
@@ -59,58 +60,60 @@ function NewPlantForm() {
   }
 
   return (
-    <div>
-      <h1> Add a New Plant!</h1>
-      <form onSubmit={handleSubmit} className="">
-        <label htmlFor="name">Name</label>
-       
-        <input
-          name="name"
-          placeholder="Plant Name"
-          onChange={ handleChange }
-          value={ formData.name }
-        ></input>
-       
-        <label htmlFor="dec">Description</label>
-       
-        <input
-          name="dec"
-          placeholder="Plant Description"
-          onChange={ handleChange }
-          value={ formData.dec }
-        ></input>
+    <FadeIn>
+      <div>
+        <h1> Add a New Plant!</h1>
+        <form onSubmit={handleSubmit} className="">
+          <label htmlFor="name">Name</label>
         
-        <label htmlFor="image">Image</label>
+          <input
+            name="name"
+            placeholder="Plant Name"
+            onChange={ handleChange }
+            value={ formData.name }
+          ></input>
+        
+          <label htmlFor="dec">Description</label>
+        
+          <input
+            name="dec"
+            placeholder="Plant Description"
+            onChange={ handleChange }
+            value={ formData.dec }
+          ></input>
+          
+          <label htmlFor="image">Image</label>
 
-        <input
-          name="img"
-          placeholder="Image URL"
-          onChange={ handleChange }
-          value={ formData.img }
-        ></input>
+          <input
+            name="img"
+            placeholder="Image URL"
+            onChange={ handleChange }
+            value={ formData.img }
+          ></input>
 
-        <label htmlFor="water interval">Water Interval</label>
+          <label htmlFor="water interval">Water Interval</label>
 
-        <input
-          type="text"
-          name="waterInterval"
-          placeholder="Water Interval"
-          onChange={ handleChange }
-          value={ formData.waterInterval }
-        ></input>
+          <input
+            type="text"
+            name="waterInterval"
+            placeholder="Water Interval"
+            onChange={ handleChange }
+            value={ formData.waterInterval }
+          ></input>
 
-        <label htmlFor="sunlight">Sunlight Exposure</label>
+          <label htmlFor="sunlight">Sunlight Exposure</label>
 
-        <input
-          type="text"
-          name="sunlight"
-          placeholder="Sunlight Exposure"
-          onChange={ handleChange }
-          value={ formData.sunlight }
-        ></input>
-        <input type="submit" className='cursor-pointer'/>
-      </form>
-    </div>
+          <input
+            type="text"
+            name="sunlight"
+            placeholder="Sunlight Exposure"
+            onChange={ handleChange }
+            value={ formData.sunlight }
+          ></input>
+          <input type="submit" className='cursor-pointer'/>
+        </form>
+      </div>
+    </FadeIn>
   )
 }
 

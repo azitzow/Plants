@@ -1,5 +1,6 @@
 import '../App.css';
 import { Routes, Route, useNavigate } from "react-router-dom";
+import FadeIn from 'react-fade-in';
 import Home from './Home';
 import Navbar from './Navbar';
 import React, {useState, useEffect, createContext, useRef} from 'react';
@@ -49,10 +50,12 @@ function App() {
   const displayPlants = plants.filter((p) => p.name.toLowerCase().includes(plantsSearch.toLowerCase()))
   const displayAddPlants = plants.filter((p) => p.name.toLowerCase().includes(addPlants.toLowerCase()))
 
+  console.log(user)
+
   return (
     <logInContext.Provider value={{loggedIn, setLoggedIn, user, setUser, setPlants}}>
       <img src={activeCan} alt="" ref={cursorDiv} className={`${watering ? "block" : "hidden"} w-20 absolute z-50 pointer-events-none`}/>
-      <div className="App w-screen h-screen bg-green-300">
+      <div className="App w-screen h-screen bg-white">
         <Navbar watering={watering} loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser}/>
         <Routes>
           <Route path="/" element={<Home />} />

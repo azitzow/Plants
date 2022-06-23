@@ -12,7 +12,7 @@ function Plant({plant}) {
       <h1>{plant.name}</h1>
         <p className={`transition-all w-80 right-9 relative text-md scale-50 h-0 overflow-visible duration-500 ${details ? "opacity-100 scale-50" : "opacity-0 scale-0"}`}>{plant.dec}</p>
         <p className='transition-all w-80 right-6 relative text-sm scale-75 h-0 overflow-visible top-20'>Sunlight: {plant.sunlight}</p>
-        <p className='transition-all w-80 -right-3 relative text-sm scale-75 h-0 overflow-visible top-24'>Water: Once every {plant.watering_interval} week{plant.watering_interval >= 2 && "s"}</p>
+        <p className='transition-all w-80 -right-3 relative text-sm scale-75 h-0 overflow-visible top-24'>Water: Once every {plant.watering_interval >= 2 && plant.watering_interval} week{plant.watering_interval >= 2 && "s"}</p>
       <img src={plant.img} alt={plant.name} className={`relative transition-all rounded-lg duration-500 ${details ? "scale-50 right-1/3 top-1 shadow-sm shadow-black" : "scale-90 right-1 top-1"}`}/>
     </div>
   )

@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import {logInContext} from "./App"
+import FadeIn from 'react-fade-in';
 
 function Login({setLoginPopup}) {
   const [formData, setFormData] = useState({
@@ -42,18 +43,18 @@ function Login({setLoginPopup}) {
     }
   }
   return (
-    <div className="login absolute w-screen h-screen z-50 bg-black bg-opacity-60 grid justify-center items-center">
-      <div className="mb-40 w-96 h-96 bg-gray-800 z-60">
-        <form  className="flex flex-col" onSubmit={handleSubmit}>
-          <label className="mt-10" htmlFor="username">Username</label>
-          <input className="w-48 relative center-rel" type="text" name="username" value={formData.username} onChange={handleChange}/>
-          <label className="mt-5" htmlFor="password">Password</label>
-          <input className="w-48 relative center-rel" type="password" name="password" value={formData.password} onChange={handleChange}/>
-          <button className="mt-3" type="submit" name="">Submit</button>
-        </form>
-      <button className='mt-36 bg-red-700 font-bold rounded-2xl h-7 w-7 text-center' onClick={() => setLoginPopup(false)}>X</button>
+      <div className="login absolute w-screen h-screen z-50 bg-black bg-opacity-60 grid justify-center items-center">
+        <div className="mb-40 w-96 h-96 bg-gray-800 z-60">
+          <form  className="flex flex-col" onSubmit={handleSubmit}>
+            <label className="mt-10" htmlFor="username">Username</label>
+            <input className="w-48 relative center-rel" type="text" name="username" value={formData.username} onChange={handleChange}/>
+            <label className="mt-5" htmlFor="password">Password</label>
+            <input className="w-48 relative center-rel" type="password" name="password" value={formData.password} onChange={handleChange}/>
+            <button className="mt-3" type="submit" name="">Submit</button>
+          </form>
+        <button className='mt-36 bg-red-700 font-bold rounded-2xl h-7 w-7 text-center' onClick={() => setLoginPopup(false)}>X</button>
+        </div>
       </div>
-    </div>
   )
 }
 
