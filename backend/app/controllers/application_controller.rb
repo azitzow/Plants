@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/users/:username/:password" do
-    User.where(username: params[:username], password: params[:password]).to_json
+    User.where(username: params[:username], password: params[:password]).to_json(include: :user_plants)
   end
 
   get "/users" do
@@ -27,8 +27,32 @@ class ApplicationController < Sinatra::Base
     "There are #{User.all.length} registered users."
   end
 
+  get "/users/:id" do
+    User.find(params[:id]).to_json(include: :user_plants)
+  end
+
   post "/users" do
     User.exists?(username: params[:username]) ? false : User.create(username: params[:username], password: params[:password]).to_json
+  end
+
+  post "/user_plants" do
+    UserPlant.create(time_since_watered: Time.now.to_i, sunlight_exposure: 0, user_id: params[:user_id], plant_id: params[:plant_id]).to_json
+  end
+
+  patch "/user_plants/:id" do
+    UserPlant.find(params[:id]).update(time_since_watered: Time.now.to_i)
+    UserPlant.find(params[:id]).to_json
+  end
+
+  delete "/users/:id" do
+    User.delete_by(id: params[:id])
+    UserPlant.delete_by(user_id: params[:id])
+    User.exists?(id: params[:id]).to_json
+  end
+
+  patch "/users/:id" do
+    User.find(params[:id]).update(password: params[:password])
+    User.find(params[:id]).to_json(include: :user_plants)
   end
 
 end
