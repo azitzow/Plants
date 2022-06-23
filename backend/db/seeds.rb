@@ -129,13 +129,21 @@ spiderPlant = Plant.create(
   sunlight: 3
 )
 
-# name = Plant.create(
-#   name: "",
-#   dec: "",
-#   img: "",
-#   watering_interval: ,
-#   sunlight: 
-# )
+airPlant = Plant.create(
+  name: "Air Plant",
+  dec: "Air plants (Tillandsia spp.) are epiphytes, meaning that in nature they grow on other plants, usually on tree branches. There are hundreds of species and varieties of air plants. They usually have strap-shape or slender triangle-shape leaves that grow in a rosette pattern with new growth appearing from the center.",
+  img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1557179346-air-plants-royalty-free-image-932521176-1557179326.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=768:*",
+  watering_interval: 1,
+  sunlight: 4
+)
+
+asparagusFern = Plant.create(
+  name: "Asparagus Fern",
+  dec: "This fluffy plant tolerates a lot more abuse than other ferns thanks to the fact that it's technically not a fern. Asparagus setaceus adapts to both bright spots and darker corners. Keep the soil moist and it'll thrive.",
+  img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1554477330-beautiful-asparagus-fern-plant-in-a-basket-royalty-free-image-972247932-1546889240.jpg?crop=0.547xw:0.361xh;0.393xw,0.317xh&resize=768:*",
+  watering_interval: 1,
+  sunlight: 4
+)
 
 # name = Plant.create(
 #   name: "",

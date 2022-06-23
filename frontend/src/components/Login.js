@@ -7,11 +7,10 @@ function Login({setLoginPopup}) {
     password: ''
   })
 
-  const {setLoggedIn} = useContext(logInContext)
+  const {setLoggedIn, setUser} = useContext(logInContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(formData)
     if (Object.values(formData).includes('')) {
       alert ("Please fill out all feilds.")
     } else {
@@ -26,6 +25,7 @@ function Login({setLoginPopup}) {
             })
             setLoggedIn(true)
             setLoginPopup(false)
+            setUser(data[0])
           } else {
             alert("Incorrect username or password.")
           }
@@ -48,7 +48,7 @@ function Login({setLoginPopup}) {
           <label className="mt-10" htmlFor="username">Username</label>
           <input className="w-48 relative center-rel" type="text" name="username" value={formData.username} onChange={handleChange}/>
           <label className="mt-5" htmlFor="password">Password</label>
-          <input className="w-48 relative center-rel" type="text" name="password" value={formData.password} onChange={handleChange}/>
+          <input className="w-48 relative center-rel" type="password" name="password" value={formData.password} onChange={handleChange}/>
           <button className="mt-3" type="submit" name="">Submit</button>
         </form>
       <button className='mt-36 bg-red-700 font-bold rounded-2xl h-7 w-7 text-center' onClick={() => setLoginPopup(false)}>X</button>
