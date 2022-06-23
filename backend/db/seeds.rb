@@ -5,23 +5,23 @@ Plant.destroy_all
 
 # Seed your database here
 zz = Plant.create(
-  name: "Zamioculcas zamiifolia aka ZZ", 
-  dec: "Officially named Zamioculcas zamiifolia, the ZZ plant is native to East Africa. Called 'the king of the indestructible plants,' the species tolerates the dangerous trifecta of plant-killers: drought, low light, and really low humidity.", 
-  img: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1557179245-the-sill-houseplant-zz-plant-1-6-014-2230x-progressive-1557179231.jpg?crop=1.00xw:0.774xh;0,0.143xh&resize=768:*', 
-  watering_interval: 2, 
+  name: "Zamioculcas zamiifolia aka ZZ",
+  dec: "Officially named Zamioculcas zamiifolia, the ZZ plant is native to East Africa. Called 'the king of the indestructible plants,' the species tolerates the dangerous trifecta of plant-killers: drought, low light, and really low humidity.",
+  img: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1557179245-the-sill-houseplant-zz-plant-1-6-014-2230x-progressive-1557179231.jpg?crop=1.00xw:0.774xh;0,0.143xh&resize=768:*',
+  watering_interval: 2,
   sunlight: 4)
 
 rubberPlant = Plant.create(
-  name: "Rubber Plant", 
+  name: "Rubber Plant",
   dec: "Rubber trees can measure over 100 feet tall in their native Asia, but regular pruning will keep the ornamental variety in check. A potted rubber tree tolerates bright direct light, but put it in a slightly more shaded spot and it will thank you for it. Water when the soil has dried out — about every week or so.",
-  img: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1557256241-pot-plant-close-up-elevated-view-high-res-stock-photography-829464-001-1557256205.jpg?crop=1.00xw:0.801xh;0,0.103xh&resize=768:*', 
-  watering_interval: 1, 
+  img: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1557256241-pot-plant-close-up-elevated-view-high-res-stock-photography-829464-001-1557256205.jpg?crop=1.00xw:0.801xh;0,0.103xh&resize=768:*',
+  watering_interval: 1,
   sunlight: 4)
 
 snakePlant = Plant.create(
-  name: "Snake Plant", 
-  dec: "Dracaena trifasciata is a species of flowering plant in the family Asparagaceae, native to tropical West Africa from Nigeria east to the Congo. It is most commonly known as the snake plant, Saint George's sword, mother-in-law's tongue, and viper's bowstring hemp, among other names.", 
-  img: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1603654368-51rKhNCtXSL.jpg?crop=1xw:1.00xh;center,top&resize=768:*', watering_interval: 6, 
+  name: "Snake Plant",
+  dec: "Dracaena trifasciata is a species of flowering plant in the family Asparagaceae, native to tropical West Africa from Nigeria east to the Congo. It is most commonly known as the snake plant, Saint George's sword, mother-in-law's tongue, and viper's bowstring hemp, among other names.",
+  img: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1603654368-51rKhNCtXSL.jpg?crop=1xw:1.00xh;center,top&resize=768:*', watering_interval: 6,
   sunlight: 4)
 
 monstera = Plant.create(
@@ -29,7 +29,7 @@ monstera = Plant.create(
   dec: "Monstera deliciosa, the Swiss cheese plant or split-leaf philodendron is a species of flowering plant native to tropical forests of southern Mexico, south to Panama. It has been introduced to many tropical areas, and has become a mildly invasive species in Hawaii, Seychelles, Ascension Island and the Society Islands.",
   img: "https://cdn.shopify.com/s/files/1/2045/8185/products/pb2000032434_600x600.jpg?v=1644447913",
   watering_interval: 2,
-  sunlight: 4 
+  sunlight: 4
 )
 
 philodendron = Plant.create(
@@ -62,7 +62,7 @@ orchid = Plant.create(
   dec: "Phalaenopsis, also known as moth orchids, is a genus of about seventy species of plants in the family Orchidaceae. Orchids in this genus are monopodial epiphytes or lithophytes with long, coarse roots, short, leafy stems and long-lasting, flat flowers arranged in a flowering stem that often branches near the end.",
   img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1554479093-1520365354-phalaenopsis-orchid-1554479086.jpg?crop=1.00xw:0.668xh;0,0.190xh&resize=768:*",
   watering_interval: 1,
-  sunlight: 4 
+  sunlight: 4
 )
 
 calatheaOrnata = Plant.create(
@@ -86,7 +86,7 @@ kalanchoe = Plant.create(
   dec: "Kalanchoe KAL-ən-KOH-ee, also written Kalanchöe or Kalanchoë, is a genus of about 125 species of tropical, succulent plants in the stonecrop family Crassulaceae, mainly native to Madagascar and tropical Africa.",
   img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1603654786-kalanchoe-blossfeldiana-flower-in-pot-royalty-free-image-522673707-1557256602.jpg?crop=1.00xw:0.668xh;0,0.0513xh&resize=768:*",
   watering_interval: 2,
-  sunlight: 10 
+  sunlight: 10
 )
 
 bromeliad = Plant.create(
@@ -110,7 +110,7 @@ aloe = Plant.create(
   dec: "Aloe is widely distributed, and is considered an invasive species in many world regions. An evergreen perennial, it originates from the Arabian Peninsula, but grows wild in tropical, semi-tropical, and arid climates around the world.",
   img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1603653973-4179hOfu5jL.jpg?crop=0.906xw:1.00xh;0.0520xw,0&resize=768:*",
   watering_interval: 3,
-  sunlight: 5 
+  sunlight: 5
 )
 
 peaceLily = Plant.create(
@@ -129,12 +129,20 @@ spiderPlant = Plant.create(
   sunlight: 3
 )
 
+airPlant = Plant.create(
+  name: "Air Plant",
+  dec: "Air plants (Tillandsia spp.) are epiphytes, meaning that in nature they grow on other plants, usually on tree branches. There are hundreds of species and varieties of air plants. They usually have strap-shape or slender triangle-shape leaves that grow in a rosette pattern with new growth appearing from the center.",
+  img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1557179346-air-plants-royalty-free-image-932521176-1557179326.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=768:*",
+  watering_interval: 1,
+  sunlight: 4
+)
+
 # name = Plant.create(
 #   name: "",
 #   dec: "",
 #   img: "",
 #   watering_interval: ,
-#   sunlight: 
+#   sunlight:
 # )
 
 # name = Plant.create(
@@ -142,7 +150,7 @@ spiderPlant = Plant.create(
 #   dec: "",
 #   img: "",
 #   watering_interval: ,
-#   sunlight: 
+#   sunlight:
 # )
 
 # name = Plant.create(
@@ -150,7 +158,7 @@ spiderPlant = Plant.create(
 #   dec: "",
 #   img: "",
 #   watering_interval: ,
-#   sunlight: 
+#   sunlight:
 # )
 
 # name = Plant.create(
@@ -158,7 +166,7 @@ spiderPlant = Plant.create(
 #   dec: "",
 #   img: "",
 #   watering_interval: ,
-#   sunlight: 
+#   sunlight:
 # )
 
 # name = Plant.create(
@@ -166,15 +174,7 @@ spiderPlant = Plant.create(
 #   dec: "",
 #   img: "",
 #   watering_interval: ,
-#   sunlight: 
-# )
-
-# name = Plant.create(
-#   name: "",
-#   dec: "",
-#   img: "",
-#   watering_interval: ,
-#   sunlight: 
+#   sunlight:
 # )
 
 
