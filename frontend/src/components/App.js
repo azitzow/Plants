@@ -44,6 +44,7 @@ function App() {
   }
 
   window.addEventListener('mousemove', activeCanFollow)
+  document.body.style.cursor = `${watering ? 'none' : 'default'}`
 
   const displayPlants = plants.filter((p) => p.name.toLowerCase().includes(plantsSearch.toLowerCase()))
   const displayAddPlants = plants.filter((p) => p.name.toLowerCase().includes(addPlants.toLowerCase()))

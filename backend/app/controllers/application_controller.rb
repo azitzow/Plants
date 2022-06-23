@@ -40,8 +40,14 @@ class ApplicationController < Sinatra::Base
   end
 
   patch "/user_plants/:id" do
-    UserPlant.find(params[:id]).update(time_since_watered: Time.now.to_i)
-    UserPlant.find(params[:id]).to_json
+    userplant = UserPlant.find(params[:id])
+    if !params[:sunlight_exposure]
+      userplant.update(time_since_watered: Time.now.to_i)
+    else
+      userplant.update(sunlight_exposure: params[:sunlight_exposure])
+    end
+
+    UserPlant.where(user_id: userplant.user_id).to_json
   end
 
   delete "/users/:id" do
