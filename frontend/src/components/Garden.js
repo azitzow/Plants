@@ -12,7 +12,7 @@ function Garden({setUser, user, displayAddPlants, addPlants, setAddPlants, plant
       method: "POST",
       headers: {
         "Content-Type": "application/json"
-      }, 
+      },
       body: JSON.stringify({user_id: user.id, plant_id: e.target.name})
     })
       .then(resp => resp.json())
@@ -80,7 +80,7 @@ function Garden({setUser, user, displayAddPlants, addPlants, setAddPlants, plant
       .then(data => setUser({...user, user_plants: data}))
   }
 
-  
+
   return (
     <FadeIn>
       <div className='h-screen'>
@@ -94,28 +94,28 @@ function Garden({setUser, user, displayAddPlants, addPlants, setAddPlants, plant
               const currentTime = Math.floor(new Date() / 1000)
               const nextWatering = lastTime + interval
               const wateringDif = currentTime - lastTime
-              const wateredToday = wateringDif < 86400 
+              const wateredToday = wateringDif < 86400
               const needsWater =  nextWatering  <= currentTime
               const sunlight = plantInfo.sunlight
               const plantId = plant.id
-              
+
               return (
               <FadeIn delay={50*i} className='pointer-events-none' childClassName='pointer-events-none' key={plantId}>
-                <div id={plantId} className={`mx-7 w-52 bg-slate-700 h-36 my-2 flex flex-col relative transition-all duration-75 ${wateredToday && 'pointer-events-none'} ${watering ? 'cursor-none hover:scale-105 active:scale-100 active' : 'cursor-auto'}`} onClick={handleWatering}>
-                  <p className='bg-slate-700 pointer-events-none text-sm'>{plantInfo.name}</p>
+                <div id={plantId} className={`mx-7 w-52 bg-rose-200 h-36 my-2 flex flex-col relative transition-all duration-75 ${wateredToday && 'pointer-events-none'} ${watering ? 'cursor-none hover:scale-105 active:scale-100 active' : 'cursor-auto'}`} onClick={handleWatering}>
+                  <p className='bg-rose-200 pointer-events-none text-sm'>{plantInfo.name}</p>
                   <p key={plantId} className={`pointer-events-none text-sm`}>
                     {wateredToday ? 'This plant is freshly Watered! Come back tomorrow!' : `This plant ${needsWater ? "needs" : "does not need"} water${!needsWater && ` for another ${howLongTillWater(nextWatering-1, currentTime)}`}!`}
                   </p>
                   <p className='absolute center-rel bottom-5 text-sm'> Sunlight:</p>
-                  <input 
-                    type="range" 
-                    name={plantId} 
-                    min='0' 
-                    max='100' 
+                  <input
+                    type="range"
+                    name={plantId}
+                    min='0'
+                    max='100'
                     className={`slider transition-all duration-75 w-40 absolute bottom-0 center-rel ${!watering && 'active'}`}
-                    value={sliders[plantId] || plant.sunlight_exposure*10 + 5} 
-                    onChange={(e) => changeSlider(e, plantId, sunlight)} 
-                    onMouseUp={submitSlider} 
+                    value={sliders[plantId] || plant.sunlight_exposure*10 + 5}
+                    onChange={(e) => changeSlider(e, plantId, sunlight)}
+                    onMouseUp={submitSlider}
                     style={{accentColor: colorGetter(plant.sunlight_exposure*10+5, sunlight)}}
                   />
                 </div>
