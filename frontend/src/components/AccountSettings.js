@@ -8,7 +8,7 @@ function AccountSettings({setAccountSettingsPopup}) {
   const [checkPassword, setCheckPassword] = useState('')
 
   const {setLoggedIn, setUser, user} = useContext(logInContext)
-  
+
   const handleDeleteAccount = () => {
     fetch(`http://localhost:9292/users/${user.id}`, {
       method: "DELETE"

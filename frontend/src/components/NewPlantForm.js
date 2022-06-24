@@ -34,13 +34,13 @@ function NewPlantForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
-        }, 
+        },
         body: JSON.stringify({
           name: formData.name,
           dec: formData.dec,
           img: formData.img,
           watering_interval: formData.waterInterval,
-          sunlight: formData.sunlight 
+          sunlight: formData.sunlight
         }),
       })
         .then((response) => response.json())
@@ -53,7 +53,7 @@ function NewPlantForm() {
             waterInterval: "",
             sunlight: ""
           })
-        ) 
+        )
     } else {
       alert("Please fill out all the boxes!")
     }
@@ -62,54 +62,65 @@ function NewPlantForm() {
   return (
     <FadeIn>
       <div>
-        <h1> Add a New Plant!</h1>
+        <h1 className="newPlantHeader"> 🌱 Add a New Plant! 🪴</h1>
         <form onSubmit={handleSubmit} className="newPlantForm">
-          <label htmlFor="name">Name</label>
-        
+
+          <label htmlFor="name"> Name </label> <br/>
           <input
+            className="newPlantInput"
             name="name"
-            placeholder="Plant Name"
+            placeholder=" Name "
             onChange={ handleChange }
             value={ formData.name }
-          ></input>
-        
-          <label htmlFor="dec">Description</label>
-        
+          ></input> <br/>
+
+          <label htmlFor="dec"> Description </label><br/>
           <input
+            className="newPlantInput"
             name="dec"
-            placeholder="Plant Description"
+            placeholder=" Short Description "
             onChange={ handleChange }
             value={ formData.dec }
-          ></input>
-          
-          <label htmlFor="image">Image</label>
+          ></input><br/>
 
+          <label htmlFor="image"> Image </label><br/>
           <input
+            className="newPlantInput"
             name="img"
-            placeholder="Image URL"
+            placeholder=" Image URL "
             onChange={ handleChange }
             value={ formData.img }
-          ></input>
+          ></input><br/>
 
-          <label htmlFor="water interval">Water Interval</label>
+          <label htmlFor="water interval"> Water Interval </label> <br/>
+          <select id="WaterInterval" name="waterInterval">
+            <option value="1"> Every 1 Week 🗓️  </option>
+            <option value="2"> Every 2 Weeks 🗓️  </option>
+            <option value="3"> Every 3 Weeks 🗓️  </option>
+            <option value="4"> Every 4 Weeks 🗓️  </option>
+            <option value="5"> Every 5 Weeks 🗓️  </option>
+            <option value="6"> Every 6 Weeks 🗓️  </option>
+            <option value="7"> Every 7 Weeks 🗓️  </option>
+            <option value="8"> Every 8 Weeks 🗓️  </option>
+            <option value="9"> Every 9 Weeks 🗓️  </option>
+            <option value="10"> Every 10 Weeks 🗓️  </option>
+          </select><br/>
 
-          <input
-            type="text"
-            name="waterInterval"
-            placeholder="Water Interval"
-            onChange={ handleChange }
-            value={ formData.waterInterval }
-          ></input>
+          <label htmlFor="sunlight"> Sunlight Exposure </label><br/>
+          <select id="sunlightExposure" name="sunlight">
+            <option value="0"> 0 - Indirect Low 🔅 </option>
+            <option value="1"> 1 - Indirect Low-Medium 🔅 </option>
+            <option value="2"> 2 - Indirect Medium 🔆</option>
+            <option value="3"> 3 - Indirect High ☀️ </option>
+            <option value="4"> 4 - Indirect Full 🌞 </option>
+            <option value="5"> 5 - Direct Low 🔅 </option>
+            <option value="6"> 6 - Direct Low-Medium 🔅 </option>
+            <option value="7"> 7 - Direct Medium 🔆 </option>
+            <option value="8"> 8 - Direct Medium-High 🔆 </option>
+            <option value="9"> 9 - Direct High ☀️ </option>
+            <option value="10"> 10 - Direct Full 🌞 </option>
+          </select><br/>
 
-          <label htmlFor="sunlight">Sunlight Exposure</label>
-
-          <input
-            type="text"
-            name="sunlight"
-            placeholder="Sunlight Exposure"
-            onChange={ handleChange }
-            value={ formData.sunlight }
-          ></input>
           <input type="submit" className='cursor-pointer'/>
         </form>
       </div>
