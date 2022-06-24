@@ -50,8 +50,6 @@ function App() {
   const displayPlants = plants.filter((p) => p.name.toLowerCase().includes(plantsSearch.toLowerCase()))
   const displayAddPlants = plants.filter((p) => p.name.toLowerCase().includes(addPlants.toLowerCase()))
 
-  console.log(user)
-
   return (
     <logInContext.Provider value={{loggedIn, setLoggedIn, user, setUser, setPlants}}>
       <img src={activeCan} alt="" ref={cursorDiv} className={`${watering ? "block" : "hidden"} w-20 absolute z-50 pointer-events-none`}/>

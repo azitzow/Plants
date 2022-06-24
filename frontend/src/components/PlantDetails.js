@@ -11,7 +11,7 @@ function PlantDetails () {
     fetch(`http://localhost:9292/user_plants/${id}`)
       .then((res) => res.json())
       .then((plants) => {
-        isLoaded(true)
+        setIsLoaded(true)
         setPlants(plants)
       })
   }, [id])

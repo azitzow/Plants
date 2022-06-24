@@ -79,7 +79,32 @@ function Garden({setUser, user, displayAddPlants, addPlants, setAddPlants, plant
       .then(resp => resp.json())
       .then(data => setUser({...user, user_plants: data}))
   }
+  
+  const handleDel = (e) => {
+    fetch(`http://localhost:9292/user_plants/${e.target.name}`, {
+      method: "DELETE"
+    })
+      .then(r => r.json())
+      .then(data => setUser({...user, user_plants: data}))
+      .then(alert('Plant removed from your garden!'))
+  }
 
+  const plantHealth = (cur, next, id, name) => {
+    const health = next-cur
+    const day = 86400
+    if (health > 0) {
+      return "Good!"
+    } else if (health <= day) {
+      return "Dry"
+    } else if (health <= day*2) {
+      return "Wilting"
+    } else if (health <= day*3) {
+      return "Dying"
+    } else if (health <= day*4) {
+      handleDel(id)
+      alert(`Your ${name} has died! Maybe try watering them!`)
+    }
+  }
 
   return (
     <FadeIn>
@@ -98,37 +123,40 @@ function Garden({setUser, user, displayAddPlants, addPlants, setAddPlants, plant
               const needsWater =  nextWatering  <= currentTime
               const sunlight = plantInfo.sunlight
               const plantId = plant.id
+              const health = plantHealth(currentTime, nextWatering, plantId, plantInfo.name)
 
               return (
               <FadeIn delay={50*i} className='pointer-events-none' childClassName='pointer-events-none' key={plantId}>
-                <div id={plantId} className={`mx-7 w-52 bg-rose-200 h-36 my-2 flex flex-col relative transition-all duration-75 ${wateredToday && 'pointer-events-none'} ${watering ? 'cursor-none hover:scale-105 active:scale-100 active' : 'cursor-auto'}`} onClick={handleWatering}>
-                  <p className='bg-rose-200 pointer-events-none text-sm'>{plantInfo.name}</p>
-                  <p key={plantId} className={`pointer-events-none text-sm`}>
-                    {wateredToday ? 'This plant is freshly Watered! Come back tomorrow!' : `This plant ${needsWater ? "needs" : "does not need"} water${!needsWater && ` for another ${howLongTillWater(nextWatering-1, currentTime)}`}!`}
+                <div id={plantId} className={`mx-7 w-52 rounded-md bg-red-100 h-36 my-2 flex flex-col relative transition-all duration-75 shadow-md shadow-black ${wateredToday && 'pointer-events-none'} ${watering ? 'cursor-none hover:scale-105 active:scale-100 active' : 'cursor-auto'}`} onClick={handleWatering}>
+                  <p className='bg-red-100 pointer-events-none text-sm'>{plantInfo.name}</p>
+                  <p key={plantId} className={`pointer-events-none text-sm mt-2`}>
+                    {wateredToday ? 'This plant is freshly Watered! Come back tomorrow!' : `This plant ${needsWater ? "needs" : "does not need"} water${!needsWater ? ` for another ${howLongTillWater(nextWatering-1, currentTime)}` : ''}!`}
                   </p>
-                  <p className='absolute center-rel bottom-5 text-sm'> Sunlight:</p>
+                  <p className='absolute center-rel bottom-10 text-sm'> Sunlight:</p>
                   <input
                     type="range"
                     name={plantId}
                     min='0'
                     max='100'
-                    className={`slider transition-all duration-75 w-40 absolute bottom-0 center-rel ${!watering && 'active'}`}
+                    className={`slider transition-all duration-75 w-40 absolute bottom-5 center-rel ${!watering && 'active'}`}
                     value={sliders[plantId] || plant.sunlight_exposure*10 + 5}
                     onChange={(e) => changeSlider(e, plantId, sunlight)}
                     onMouseUp={submitSlider}
                     style={{accentColor: colorGetter(plant.sunlight_exposure*10+5, sunlight)}}
                   />
+                  <p className='absolute bottom-0 left-1 text-sm'>Health: {health || 'error'}</p>
+                  <button onClick={handleDel} name={plantId} className={`w-fit absolute bottom-0 right-0 ${!watering && 'active'}`}>🗑️</button>
                 </div>
               </FadeIn>
                       )
             }))}
           </div>
-          <h1 className='text-5xl mt-3'>{`${user.username.replace(/^(.)|\s+(.)/g, c => c.toUpperCase())}'s Garden`}</h1>
-          <button onClick={() => setAddPlant(!addPlant)} className={`${watering && 'pointer-events-none'} mt-5 text-center text-indigo-400 font-bold rounded py-2 w-2/12 focus:outline-none bg-gray-900 border-2 border-indigo-400`}>
+          <h1 className='text-5xl mt-3 text-white'>{`${user.username.replace(/^(.)|\s+(.)/g, c => c.toUpperCase())}'s Garden`}</h1>
+          <button onClick={() => setAddPlant(!addPlant)} className={`${watering && 'pointer-events-none'} mt-5 text-center text-green-600 font-bold rounded py-2 w-2/12 focus:outline-none bg-green-900 border-2 shadow-black shadow-sm border-green-600`}>
             {addPlant ? "Close plants menu" : "Add plants to your garden!"}
           </button>
-          <div className={`add-plants z-50 overflow-auto transition-all duration-1000 bg-slate-600 absolute rounded-lg h-80 w-80 ${addPlant ? "opacity-100 left-1" : "opacity-0 -left-3/4"}`}>
-            <input type="text" className={`mt-5`} value={addPlants} onChange={(e) => setAddPlants(e.target.value)}/>
+          <div className={`add-plants z-50 overflow-auto transition-all duration-1000 bg-green-50 absolute rounded-lg h-80 w-80 ${addPlant ? "opacity-100 left-1" : "opacity-0 -left-3/4"}`}>
+            <input type="text" className={`mt-5 bg-green-50 border-y-4 border-x-green-600 border-x-4 p-1 hover:bg-green-200 outline-none transition-all focus:bg-green-100 border-y-green-600 rounded-xl`} value={addPlants} placeholder='search' onChange={(e) => setAddPlants(e.target.value)}/>
             {displayAddPlants.map(plant => (
               <div key={plant.id} className="bg-green-300 w-5/6 h-5 ml-6 my-2 text-left border-2 rounded-md border-green-400">
                 <p className='inline w-30 text-sm border-transparent absolute'>{`${plant.name}`}</p> <button name={plant.id} className='absolute right-10 text-sm' onClick={handleClick}>Add</button>

@@ -55,8 +55,6 @@ body {
   cursor: "none";
 }
 
-
-
 .App {
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
@@ -71,19 +69,24 @@ body {
   pointer-events: all;
 }
 
+
+.nameLabel {
+  padding-bottom: 2em;
+}
+
 .newPlantHeader {
   font-size: xx-large;
+  padding-top: 0.5em;
 }
 
 .newPlantForm {
-
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #f0fdf4;
   padding: 20px;
 }
 
 .newPlantInput {
-  width: 70%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -93,7 +96,7 @@ body {
 }
 
 .newPlantInput[type=text], select {
-  width: 70%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -103,7 +106,7 @@ body {
 }
 
 .cursor-pointer[type=submit] {
-  width: 70%;
+  width: 100%;
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;

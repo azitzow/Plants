@@ -124,7 +124,7 @@ peaceLily = Plant.create(
 spiderPlant = Plant.create(
   name: "Spider Plant",
   dec: "Chlorophytum comosum, usually called spider plant due to its spider like look, but also known as spider ivy, ribbon plant, and hen and chickens is a species of evergreen perennial flowering plant of the family Asparagaceae.",
-  img: "https://www.englishgardens.com/wp-content/uploads/House-Plant-Spider-1.jpg",
+  img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1623877401-medium-plant-spider-plant-seafoam-pot_2048x.jpg?crop=1xw:1xh;center,top&resize=768:*",
   watering_interval: 1,
   sunlight: 3
 )
@@ -145,29 +145,29 @@ asparagusFern = Plant.create(
   sunlight: 4
 )
 
-# name = Plant.create(
-#   name: "",
-#   dec: "",
-#   img: "",
-#   watering_interval: ,
-#   sunlight:
-# )
+pileaPeperomiodes = Plant.create(
+  name: "Pilea Peperomioides",
+  dec: "Pilea peperomioides, the Chinese money plant, UFO plant, pancake plant or missionary plant, is a species of flowering plant in the nettle family Urticaceae, native to Yunnan and Sichuan provinces in southern China."
+  img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1589561181-Monet_SolidCarousel.jpg?crop=0.870xw:0.906xh;0.0353xw,0.0762xh&resize=768:*",
+  watering_interval: 2,
+  sunlight: 4
+)
 
-# name = Plant.create(
-#   name: "",
-#   dec: "",
-#   img: "",
-#   watering_interval: ,
-#   sunlight:
-# )
+arrowheadVine = Plant.create(
+  name: "Varieted Arrowwhead Vine",
+  dec: "Arrowhead Plant, also called African Evergreen and Nephthytis, is an easy to care for houseplant with few problems. It’s perfect for the beginner or black-thumb gardener who desires indoor greenery without having to fuss too much over its care.",
+  img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1589575893-arrowhead-plant-1589575872.jpg?crop=1xw:1xh;center,top&resize=768:*",
+  watering_interval: 2,
+  sunlight: 4
+)
 
-# name = Plant.create(
-#   name: "",
-#   dec: "",
-#   img: "",
-#   watering_interval: ,
-#   sunlight:
-# )
+zebraplant = Plant.create(
+  name: "Zebra Plant",
+  dec: "The Haworthia, or zebra plant, is one of the easiest succulents to grow. Maxing out at only eight inches tall, they require low light and minimal watering. Haworthia can be placed in both open spaces like a living room or small, contained spaces like a bathroom. Plus, their striped leaves are subtly striking—the perfect complement to any design style.",
+  img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1623877745-il_794xN.2475192509_12kk.jpg?crop=1xw:1xh;center,top&resize=768:*",
+  watering_interval: 3,
+  sunlight: 1
+)
 
 # name = Plant.create(
 #   name: "",

@@ -29,6 +29,13 @@ class ApplicationController < Sinatra::Base
     "There are #{User.all.length} registered users."
   end
 
+  delete '/user_plants/:id' do
+    plant = UserPlant.find(params[:id])
+    user_id = plant.user_id
+    plant.delete
+    UserPlant.where(user_id: user_id).to_json
+  end
+
   get "/users/:id" do
     User.find(params[:id]).to_json(include: :user_plants)
   end
@@ -38,7 +45,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/user_plants" do
-    UserPlant.create(time_since_watered: Time.now.to_i, sunlight_exposure: 0, user_id: params[:user_id], plant_id: params[:plant_id]).to_json
+    water_interval = Plant.find(params[:plant_id]).watering_interval
+    empty_plant = Time.now.to_i - (water_interval*604800)
+    UserPlant.create(time_since_watered: empty_plant, sunlight_exposure: 0, user_id: params[:user_id], plant_id: params[:plant_id]).to_json
   end
 
   patch "/user_plants/:id" do

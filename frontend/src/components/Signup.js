@@ -50,17 +50,17 @@ function Signup({setSigninPopup}) {
   }
   return (
     <div className="signup absolute w-screen h-screen z-50 bg-black bg-opacity-60 grid justify-center items-center">
-      <div className="mb-40 w-96 h-96 bg-gray-800 z-60">
+      <div className="mb-40 w-96 h-96 bg-gray-800 z-60 text-white">
         <form  className="flex flex-col" onSubmit={handleSubmit}>
           <label className="mt-10" htmlFor="username">Username</label>
-          <input className="w-48 relative center-rel" type="text" name="username" value={formData.username} onChange={handleChange}/>
+          <input className="w-48 relative center-rel text-black" type="text" name="username" value={formData.username} onChange={handleChange}/>
           <label className="mt-5" htmlFor="password">Password</label>
-          <input className="w-48 relative center-rel" type="password" name="password" value={formData.password} onChange={handleChange}/>
+          <input className="w-48 relative center-rel text-black" type="password" name="password" value={formData.password} onChange={handleChange}/>
           <label className="mt-5" htmlFor="passwordCheck">Retype Password</label>
-          <input className="w-48 relative center-rel" type="password" name="passwordCheck" value={formData.passwordCheck} onChange={handleChange}/>
-          <button className="mt-5" type="submit" name="">Submit</button>
+          <input className="w-48 relative center-rel text-black" type="password" name="passwordCheck" value={formData.passwordCheck} onChange={handleChange}/>
+          <button className="relative top-6 w-2/5 center-rel text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 active:bg-indigo-900" type="submit" name="">Create Account</button>
         </form>
-      <button className='mt-16 bg-red-700 font-bold rounded-2xl h-7 w-7 text-center' onClick={() => setSigninPopup(false)}>X</button>
+      <button className='mt-20 transition-all bg-red-700 hover:bg-red-600 active:bg-red-800 font-bold rounded-2xl h-7 w-7 text-center text-black' onClick={() => setSigninPopup(false)}>X</button>
       </div>
     </div>
   )
