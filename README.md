@@ -1,4 +1,6 @@
 # Plants
+![Plant App](https://user-images.githubusercontent.com/82430080/202047943-dc2659d3-13e1-4216-93f3-e2475adb877f.png)
+
 
 ## Demo Video
 
