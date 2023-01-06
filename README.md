@@ -1,7 +1,5 @@
-# Plants
-![Plant App](https://user-images.githubusercontent.com/82430080/202047943-dc2659d3-13e1-4216-93f3-e2475adb877f.png)
-
-
+# Plant
+Plant is my phase 3 Flatiron project, created by myself and my partner <a href="https://github.com/mpbyoyo" rel="nofollow">Maxwell Bourgeois.</a>
 ## Demo Video
 
 
@@ -17,3 +15,14 @@ An app that provides the user with horticulture information on indoor plants and
   <li>Built a Sinatra API backend that uses Active Record to access and persist data in a database.</li>
   <li>CSS writing in Vanilla CSS and Tailwind</li>
 </ul>
+
+### Phase 3 Project Requirements 
+
+- [X] Use Active Record to interact with a database
+- [X] Have at least two models with a one-to-many relationship
+- [X] Set up API routes in Sinatra to create and read actions for both models, with full CRUD capability for one of the models
+- [X] Build a separate React frontend application that interacts with the API to perform CRUD actions
+- [X] Use good OO design patterns. You should have separate classes for each of your models, and create instance and class methods as necessary
+
+## Contributors
+<a href="https://github.com/mpbyoyo" rel="nofollow">@Maxwell_Bourgeois</a>
